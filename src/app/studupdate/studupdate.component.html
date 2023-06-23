@@ -1,0 +1,38 @@
+<div class="container" mt-5>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <h5>Update data</h5>
+                <div class="row">
+                    <form>
+                        <div class="from-group mb-2">
+                            <label for="name" class="form-label">Enter Name</label>
+                            <input type="text" class="form-control" [(ngModel)]="student.name" name="name"  placeholder="Enter Book Id">
+                           </div>
+
+                        <div class="from-group mb-2">
+                          <label for="email" class="form-label">Enter Email</label>
+                          <input type="text" class="form-control" [(ngModel)]="student.email" name="email"  placeholder="Enter name">
+                         </div>
+        
+                        <div class="from-group mb-2">
+                            <label for="semester" class="form-label">Enter Semester</label>
+                            <input type="text" class="form-control" [(ngModel)]="student.semester" name="usn" placeholder="Enter email"> 
+                        </div>
+
+                        <div class="from-group mb-2">
+                            <label for="usn" class="form-label">Enter USN</label>
+                            <input type="text" class="form-control" [(ngModel)]="student.usn" name="usn"  placeholder="Enter USN">
+                           </div>
+                      </form>
+                </div>
+                <div>
+                    <button (click)="update()" class="btn btn-success">Update</button>&nbsp;
+                    <button routerLink="/students(i)" class="btn btn-dark" >Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

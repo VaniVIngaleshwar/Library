@@ -1,0 +1,92 @@
+<nav>
+ 
+  <div class="container">
+    <div class="d-flex">
+      <input type="search" class="form-control me-2 mb-2" name="searchBooks" placeholder="Search Books"
+      (input)="searchBook($event)">
+      <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn btn-outline-success me-2 mb-2 btn-small ps-2 w-75 ms-3">Add Books</button>
+    </div>
+  </div>
+</nav>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div style="background-color:#9DC08B" class="modal-header">
+        <h5 style="color: white;" class="modal-title" id="exampleModalLabel">ADD BOOK DATA</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="bookform">
+          <div class="from-group mb-2">
+            <label for="bid" class="form-label">Book Id</label>
+            <input type="text" class="form-control" formControlName="bid" placeholder="Enter Book Id">
+            <span style="color: red;" *ngIf="bid && bid.invalid && bid.touched">This field is not valid</span> <br>
+          </div>
+
+          <div class="from-group mb-2">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Enter Name">
+            <span style="color: red;" *ngIf="name && name.invalid && name.touched">This field is not valid</span> <br>
+          </div>
+
+          <div class="from-group mb-2">
+            <label for="author" class="form-label">Author</label>
+            <input type="author" class="form-control" formControlName="author" placeholder="Enter Author">
+            <span style="color: red;" *ngIf="author && author.invalid && author.touched">This field is not valid</span> <br>
+          </div>
+
+          <div class="from-group mb-2">
+            <label for="type" class="form-label">Type</label>
+            <input type="text" class="form-control" formControlName="type" placeholder="Enter Type">
+            <span style="color: red;" *ngIf="type && type.invalid && type.touched">This field is not valid</span> <br>
+          </div>
+
+          <div class="from-group mb-2">
+            <label for="year" class="form-label">Published Year</label>
+            <input type="text" class="form-control" formControlName="year" placeholder="Enter Year">
+            <span style="color: red;" *ngIf="year && year.invalid && year.touched">This field is not valid</span> <br>
+          </div>
+
+          <div class="from-group mb-2">
+            <label for="price" class="form-label">Price</label>
+            <input type="text" class="form-control" formControlName="price" placeholder="Enter Price">
+            <span style="color: red;" *ngIf="price && price.invalid && price.touched">This field is not valid</span> <br>
+          </div>
+        </form>
+      </div>
+      <div style="background-color: #40513B" class="modal-footer">
+        <button type="button" type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+          <button (click)="addBook(this.bookform.value)"  type="button" type="button" class="btn btn-light" [disabled]="!bookform.valid">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt-3">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Book Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">Type</th>
+        <th scope="col">Year</th>
+        <th scope="col">Price</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data">
+        <td>{{item.bid}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.author}}</td>
+        <td>{{item.type}}</td>
+        <td>{{item.year}}</td>
+        <td>{{item.price}}</td>
+        <td><button routerLink="/update/{{item.id}}" type="button" class="btn btn-outline-success btn-small ps-2 w-75 ms-3">Edit</button></td>
+        <td><button (click)="deletBook(item)" type="button" class="btn btn-outline-success btn-small ps-2 w-75 ms-3">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

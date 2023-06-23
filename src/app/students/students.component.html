@@ -1,0 +1,78 @@
+<nav >
+    <div class="container">
+        <div class="d-flex">
+          <input type="search" class="form-control me-2 mb-2" name="searchStudents" placeholder="Search Students"
+      (input)="searchStudents($event)">
+            <button class="" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn btn-outline-success mb-2 btn-small ps-2 w-75 ms-3">Add Students</button>
+        </div>
+    </div>
+    </nav>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div style="background-color:#9DC08B" class= "modal-header">
+          <h5 style="color: white;" class="modal-title" id="exampleModalLabel">ADD STUDENT DATA</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="studform">
+                <div class="from-group mb-2">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" formControlName="name" placeholder="Enter name">
+                  <span style="color: red;" *ngIf="name && name.invalid && name.touched">This field is not valid</span> <br> 
+                </div>
+
+                <div class="from-group mb-2">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" formControlName="email" placeholder="Enter Email"> 
+                    <span style="color: red;" *ngIf="email && email.invalid && email.touched">This field is not valid</span> <br>
+                  </div>
+
+                  <div class="from-group mb-2">
+                    <label for="semester" class="form-label">Semester</label>
+                    <input type="text" class="form-control" formControlName="semester" placeholder="Enter Semester">
+                    <span style="color: red;" *ngIf="semester && semester.invalid && semester.touched">This field is not valid</span> <br>
+                  </div>
+
+                  <div class="from-group mb-2">
+                    <label for="usn" class="form-label">USN</label>
+                    <input type="text" class="form-control" formControlName="usn" placeholder="Enter USN">
+                    <span style="color: red;" *ngIf="usn && usn.invalid && usn.touched">This field is not valid</span> <br>
+                  </div>
+              </form>
+        </div>
+        <div style="background-color: #40513B" class="modal-footer">
+          <button type="button" type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+          <button (click)="addstud(this.studform.value)"  type="button" type="button" class="btn btn-light" [disabled]="!studform.valid">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid mt-3">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Semester</th>
+            <th scope="col">USN</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data">
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.semester}}</td>
+            <td>{{item.usn}}</td>
+            <td><button routerLink="/studupdate/{{item.id}}" type="button" class="btn btn-outline-success btn-small ps-2 w-75 ms-3">Edit</button></td>
+        <td><button type="button" class="btn btn-outline-success btn-small ps-2 w-75 ms-3" (click)="deletbook(item)">Delete</button></td>
+          </tr>
+            
+        </tbody>
+      </table>
+  </div>
+

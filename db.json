@@ -1,0 +1,56 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "author": "Preeti Shenoy",
+      "name": "Wakeup life is calling",
+      "year": "2012",
+      "bid": "444",
+      "pages": "300",
+      "imageSrc": "../../assets/image/wakeup.png",
+      "type": "Non-Fiction",
+      "price": "₹92.00"
+    },
+    {
+      "name": "HarryPotter",
+      "author": "J.K.Rowling",
+      "year": "1997",
+      "id": 2,
+      "bid": "196",
+      "pages": "700",
+      "imageSrc": "../../assets/image/hp.png",
+      "price": "₹180.00",
+      "type": "Fiction"
+    },
+    {
+      "bid": "1123",
+      "name": "Wings of Fire",
+      "pages": "300",
+      "author": "Arun Tiwari",
+      "year": "1999",
+      "id": 3,
+      "imageSrc": "../../assets/image/wf.png",
+      "type": "Non-Fiction",
+      "price": "₹399.00"
+    }
+  ],
+  "students": [
+    {
+      "name": "Vani",
+      "email": "vaniingaleshwar4@gmail.com",
+      "semester": "8",
+      "usn": "19IS043",
+      "id": 1
+    },
+    {
+      "name": "Arushi",
+      "email": "aru@gmail.com",
+      "semester": "8",
+      "usn": "19IS008",
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

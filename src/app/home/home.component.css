@@ -1,0 +1,21 @@
+.container{
+    margin-top: 10%;
+    border: 2px solid rgb(70, 69, 69);
+    height: 300px;
+    width: 500px;
+    color: #c8eeb8;
+    font-weight: 500;
+    background:rgb(70, 69, 69) ;
+}
+h3{
+    text-align: center;
+    color: #cdeec2;
+}
+nav{
+    display: flex;
+}
+img{
+    margin-top: 20%;
+    width: 600px;
+    height: 300px;
+}
